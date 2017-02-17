@@ -14,28 +14,54 @@ import javax.swing.JOptionPane;
 public abstract class Course {
     private String courseName;
     private String courseNumber;
-    private double credits;
+    private double numberOfCredits;
     
-   // I felt getCourseNumber should be abstract because course number can change.
-    public abstract String getCourseNumber();
-
-    public abstract void setCourseNumber(String courseNumber);
-    // I was up in the air about credits.  I felt like these were less likely to change. 
-    public double getCredits() {
-        return credits;
+ 
+    public Course(String courseName, String courseNumber, double numberOfCredits){
+        this.setCourseName(courseName);
+        this.setCourseNumber(courseNumber);
+        this.setNumberOfCredits(numberOfCredits);
+    }
+    public String getCourseNumber(){
+        return courseNumber;
     }
 
-    public void setCredits(double credits) {
-        //have to take into account class audits and non credit classes.
-        if(credits < 0.0 || credits > 5.0) {
+    public void setCourseNumber(String courseNumber){
+           if(courseNumber == null || courseNumber.length() == 0) {
             JOptionPane.showMessageDialog(null,
-                    "Error: credits must be in the range 0.5 to 4.0");
+                    "Error: courseNumber cannot be null of empty string");
             System.exit(0);
         }
-        this.credits = credits;
+        this.courseNumber = courseNumber;
+    
     }
-    // I felt courseName was something that could change or could be different between two programs.  
-    public abstract String getCourseName();
+    
+   
+    public double getNumberOfCredits() {
+        return numberOfCredits;
+    }
 
-    public abstract void setCourseName(String courseName); 
+    public void setNumberOfCredits(double numberOfCredits) {
+        //have to take into account class audits and non credit classes.
+        if(numberOfCredits >= 0.0 || numberOfCredits <= 5.0) {
+            JOptionPane.showMessageDialog(null,
+                    "Error: credits must be in the range 0 to 4.0");
+            System.exit(0);
+        }
+        this.numberOfCredits = numberOfCredits;
+    }
+    
+    public String getCourseName(){
+        return courseName;
+    }
+
+    public void setCourseName(String courseName){
+             if(courseName == null || courseName.length() == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Error: courseName cannot be null of empty string");
+            System.exit(0);
+        }
+        this.courseName = courseName;
+        
+    } 
 }

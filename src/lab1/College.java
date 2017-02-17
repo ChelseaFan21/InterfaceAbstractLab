@@ -37,6 +37,13 @@ public class College {
     public void setCourses(ArrayList<String> courses) {
         this.courses = courses;
     }
+    public void displayCourses(){
+        for(int i = 0; i < courses.size(); i++){
+            System.out.println(courses.get(i));
+        }
+        
+        
+    }
     
   
 

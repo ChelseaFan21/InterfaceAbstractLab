@@ -11,32 +11,26 @@ package lab1;
  */
 public class StartUp {
     public static void main(String[] args) {
-        AdvancedJavaCourse class1 = new AdvancedJavaCourse("Advanced Java", "150 - 1");
-        IntroJavaCourse class2 = new IntroJavaCourse("Intro to Java", "110 - 1");
-        IntroToProgrammingCourse class3 = new IntroToProgrammingCourse("Intro to Programming", "100 - 1");
+        AdvancedJavaCourse class1 = new AdvancedJavaCourse("Advanced Java", "150 - 1", 4, "Intro to Java");
+        IntroJavaCourse class2 = new IntroJavaCourse("Intro to Java", "110 - 1", 4, "Intro to Programming");
+        IntroToProgrammingCourse class3 = new IntroToProgrammingCourse("Intro to Programming", "100 - 1", 2);
         
         System.out.println("Advanced Java Course");
-        //sets amount of credits for class
-        class1.setCredits(4);
-        // sets the prerequisites
-        class1.setPrerequisites("Intro to Java");
-        System.out.println(class1.getCourseName() + " " + class1.getCourseNumber() + " " + class1.getCredits() + " " + class1.getPrerequisites());
+        System.out.println("\n" + class1.getCourseName() + ", " + class1.getCourseNumber() + ", " + class1.getNumberOfCredits() + ", " + class1.getPrerequisites() + "\n");
         
         System.out.println("Intro to Java");
-        //sets amount of credits
-        class1.setCredits(4);
-        //sets prereqs.
         class1.setPrerequisites("Intro to Programming");
-        System.out.println(class2.getCourseName() + " " + class2.getCourseNumber() + " " + class2.getCredits() + " " + class1.getPrerequisites());
+        System.out.println("\n" + class2.getCourseName() + ", " + class2.getCourseNumber() + ", " + class2.getNumberOfCredits() + ", " + class1.getPrerequisites() + "\n");
         
         System.out.println("Intro to Programming");
-        class3.setCredits(2);
-        System.out.println(class3.getCourseName() + " " + class3.getCourseNumber() + " " + class3.getCredits());
+        System.out.println("\n" + class3.getCourseName() + ", " + class3.getCourseNumber() + ",  " + class3.getNumberOfCredits() + "\n");
         
         College newCollege = new College();
         newCollege.addCollegeCourse("Intro to Java");
         newCollege.addCollegeCourse("Advanced Java");
         newCollege.addCollegeCourse("Intro to Programming");
+        
+       newCollege.displayCourses();
       
               
     }
