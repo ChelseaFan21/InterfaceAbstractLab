@@ -13,10 +13,12 @@ import java.util.ArrayList;
  */
 public class College {
  private ArrayList<String> courses;
+ private CourseReportService newReport;
 
     //
     public College(){
      courses = new ArrayList();
+     newReport = new CourseReportService();
     }
     // It works right now but I'm not sure I would be able to call the list of classes up. 
     public void addCollegeCourse(String courseName){
@@ -27,7 +29,8 @@ public class College {
        // newJava.setCourseName(courseName);
        // newProg.setCourseName(courseName);
         courses.add(courseName);
-        System.out.println(courseName + " has been added to the inventory");
+        newReport.addInformation(courseName + " has been added to the inventory");
+        newReport.outputReport();
     }
 
     public ArrayList<String> getCourses() {
@@ -37,11 +40,15 @@ public class College {
     public void setCourses(ArrayList<String> courses) {
         this.courses = courses;
     }
+    //create report service.
     public void displayCourses(){
         for(int i = 0; i < courses.size(); i++){
             System.out.println(courses.get(i));
         }
-        
+        //newReport.outputReport();
+       
+        //String index: courses
+        //line += index + "\n"
         
     }
     

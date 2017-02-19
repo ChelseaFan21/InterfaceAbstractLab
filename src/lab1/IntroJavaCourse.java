@@ -1,6 +1,6 @@
 package lab1;
 
-import javax.swing.JOptionPane;
+
 
 /**
  * Describe responsibilities here.
@@ -10,10 +10,14 @@ import javax.swing.JOptionPane;
  */
 public class IntroJavaCourse extends Course{
     private String prerequisites;
+//    private CourseReportService newReport;
 
     public IntroJavaCourse(String courseName, String courseNumber, double numberOfCredits, String prerequisites) {
-        super(courseName, courseNumber, numberOfCredits);
+        this.setCourseName(courseName);
+        this.setCourseNumber(courseNumber);
+        this.setNumberOfCredits(numberOfCredits);
         this.setPrerequisites(prerequisites);
+//        newReport = new CourseReportService();
     }
   
     // Left prerquisites in as not all classes have prerequisites. 
@@ -23,13 +27,14 @@ public class IntroJavaCourse extends Course{
 
     public void setPrerequisites(String prerequisites) {
         if(prerequisites == null || prerequisites.length() == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: prerequisites cannot be null of empty string");
-            System.exit(0);
+        throw new IllegalArgumentException("Error: prerequisites cannot be null of empty string");
+            
         }
         this.prerequisites = prerequisites;
     }
-
+//    public void javaContent(){
+//        newReport.addInformation("In order to be apart of this class you must have completed Intro to programming.");
+//    }
  
 
 }

@@ -13,24 +13,33 @@ import javax.swing.JOptionPane;
  */
 public class AdvancedJavaCourse extends Course {
      private String prerequisites;
-
+    // private CourseReportService newReport;
+     
+     // get rid of super and use setter methods for super.
     public AdvancedJavaCourse(String courseName, String courseNumber, double numberOfCredits, String prerequisites) {
-        super(courseName, courseNumber, numberOfCredits);
+        this.setCourseName(courseName);
+        this.setCourseNumber(courseNumber);
+        this.setNumberOfCredits(numberOfCredits);
         this.setPrerequisites(prerequisites);
+       // newReport = new CourseReportService();
     }
-
+    // prerequisites belong in superclass
     public String getPrerequisites() {
         return prerequisites;
     }
 
     public void setPrerequisites(String prerequisites) {
         if(prerequisites == null || prerequisites.length() == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: prerequisites cannot be null of empty string");
-            System.exit(0);
+            throw new IllegalArgumentException("Error: prerequisites cannot be null of empty string");
+           
         }
         this.prerequisites = prerequisites;
     }
+    // variation - reason for subclasses
+//    public void advancedContent(){
+//        newReport.addInformation("The content in this course is more challenging than "
+//                + "Introduction to Java.");
+//    }
 
 
 

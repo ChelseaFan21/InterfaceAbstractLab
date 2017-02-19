@@ -5,7 +5,7 @@
  */
 package lab1;
 
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -16,21 +16,16 @@ public abstract class Course {
     private String courseNumber;
     private double numberOfCredits;
     
- 
-    public Course(String courseName, String courseNumber, double numberOfCredits){
-        this.setCourseName(courseName);
-        this.setCourseNumber(courseNumber);
-        this.setNumberOfCredits(numberOfCredits);
-    }
+    
+   
+  
     public String getCourseNumber(){
         return courseNumber;
     }
 
     public void setCourseNumber(String courseNumber){
            if(courseNumber == null || courseNumber.length() == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: courseNumber cannot be null of empty string");
-            System.exit(0);
+           throw new IllegalArgumentException("Error: courseNumber cannot be null of empty string");
         }
         this.courseNumber = courseNumber;
     
@@ -40,13 +35,13 @@ public abstract class Course {
     public double getNumberOfCredits() {
         return numberOfCredits;
     }
-
+    // think about making this an abstract method. Extremely rigid.
     public void setNumberOfCredits(double numberOfCredits) {
         //have to take into account class audits and non credit classes.
-        if(numberOfCredits >= 0.0 || numberOfCredits <= 5.0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: credits must be in the range 0 to 4.0");
-            System.exit(0);
+        if(numberOfCredits < 0.0 || numberOfCredits > 5.0) {
+            //throws new illegal argument exception.
+        throw new IllegalArgumentException("Error: credits must be in the range 0 to 5.0");
+           
         }
         this.numberOfCredits = numberOfCredits;
     }
@@ -57,9 +52,8 @@ public abstract class Course {
 
     public void setCourseName(String courseName){
              if(courseName == null || courseName.length() == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: courseName cannot be null of empty string");
-            System.exit(0);
+            throw new IllegalArgumentException("Error: courseName cannot be null of empty string");
+           
         }
         this.courseName = courseName;
         
