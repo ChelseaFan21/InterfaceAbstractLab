@@ -7,15 +7,29 @@ package lab2;
  * @version     1.00
  */
 public class IntroJavaCourse {
-    String courseName;
+    private String courseName;
     private String courseNumber;
     private double credits;
-    String prerequisites;
+    private String prerequisites;
 
-    public IntroJavaCourse(String courseName, String courseNumber) {
-        this.courseName = courseName;
-        this.courseNumber = courseNumber;
+    public IntroJavaCourse(String courseName, String courseNumber, double credits, String prerequisites) {
+        this.setCourseName(courseName);
+        this.setCourseNumber(courseNumber);
+        this.setCredits(credits);
+        this.setPrerequisites(prerequisites);
     }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        if(courseNumber == null || courseNumber.length() == 0) {
+           throw new IllegalArgumentException("Error: courseNumber cannot be null of empty string");
+        }
+        this.courseName = courseName;
+    }
+    
 
     public String getCourseNumber() {
         return courseNumber;

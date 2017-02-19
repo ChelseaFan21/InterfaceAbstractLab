@@ -13,11 +13,13 @@ public interface Course {
     //abstract getter methods
     public abstract String getCourseNumber();
     public abstract String getCourseName();
-    public abstract double getNumberOfCredits();
+    public abstract double getCredits();
+    public abstract String getPrerequisites();
     
     //abstract setter methods
     public abstract void setCourseNumber(String courseNumber);
     public abstract void setCourseName(String courseName);
-    public abstract void setNumberOfCredits(double numberOfCredits);
+    public abstract void setCredits(double numberOfCredits);
+    public abstract void setPrerequisites(String prerequisites);
     
 }
